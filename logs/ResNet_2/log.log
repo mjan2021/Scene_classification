@@ -1,0 +1,96 @@
+2022-12-20 22:36:52,602 INFO  __main__        - Log file is ../logs/ResNet_2//log.log
+2022-12-20 22:36:52,602 INFO  __main__        - Device: cuda:0
+2022-12-20 22:36:52,602 INFO  __main__        - Fold: 0, Model: ResNet
+2022-12-20 22:40:16,895 INFO  __main__        - Log file is ../logs/ResNet_2//log.log
+2022-12-20 22:40:16,895 INFO  __main__        - Device: cuda:0
+2022-12-20 22:40:16,895 INFO  __main__        - Fold: 0, Model: ResNet
+2022-12-20 22:46:40,696 INFO  __main__        - Log file is ../logs/ResNet_2//log.log
+2022-12-20 22:46:40,696 INFO  __main__        - Device: cuda:0
+2022-12-20 22:46:40,696 INFO  __main__        - Fold: 0, Model: ResNet
+2022-12-20 22:47:37,134 INFO  __main__        - Log file is ../logs/ResNet_2//log.log
+2022-12-20 22:47:37,144 INFO  __main__        - Device: cuda:0
+2022-12-20 22:47:37,144 INFO  __main__        - Fold: 0, Model: ResNet
+2022-12-20 23:24:23,817 INFO  __main__        - Log file is ../logs/ResNet_2//log.log
+2022-12-20 23:24:23,817 INFO  __main__        - Device: cuda:0
+2022-12-20 23:24:23,817 INFO  __main__        - Fold: 0, Model: ResNet
+2022-12-20 23:31:26,881 INFO  __main__        - Log file is ../logs/ResNet_2//log.log
+2022-12-20 23:31:26,881 INFO  __main__        - Device: cuda:0
+2022-12-20 23:31:26,881 INFO  __main__        - Fold: 0, Model: ResNet
+2022-12-20 23:39:06,724 INFO  __main__        - Log file is ../logs/ResNet_2//log.log
+2022-12-20 23:39:06,724 INFO  __main__        - Device: cuda:0
+2022-12-20 23:39:06,724 INFO  __main__        - Fold: 0, Model: ResNet
+2022-12-20 23:41:43,324 INFO  __main__        - Epoch: 0/2
+2022-12-20 23:41:43,324 INFO  __main__        - Average Training Loss: 0.7827417035400868
+2022-12-20 23:41:43,324 INFO  __main__        - Average Validation Loss: 0.5234368639031891
+2022-12-20 23:41:43,324 INFO  __main__        - Average Training Acc: 77.359375
+2022-12-20 23:41:43,324 INFO  __main__        - Average Validation acc: 90.875
+2022-12-20 23:44:20,379 INFO  __main__        - Epoch: 1/2
+2022-12-20 23:44:20,379 INFO  __main__        - Average Training Loss: 0.2760652647039387
+2022-12-20 23:44:20,379 INFO  __main__        - Average Validation Loss: 0.23780872269562678
+2022-12-20 23:44:20,379 INFO  __main__        - Average Training Acc: 91.21875
+2022-12-20 23:44:20,379 INFO  __main__        - Average Validation acc: 93.4375
+2022-12-20 23:44:20,379 INFO  __main__        - New High Acc: <<<<< 0.4 >>>>>
+2022-12-20 23:44:31,352 INFO  __main__        - Fold: 1, Model: ResNet
+2022-12-20 23:47:10,703 INFO  __main__        - Epoch: 0/2
+2022-12-20 23:47:10,703 INFO  __main__        - Average Training Loss: 0.19530116677080514
+2022-12-20 23:47:10,703 INFO  __main__        - Average Validation Loss: 0.12013566773755883
+2022-12-20 23:47:10,703 INFO  __main__        - Average Training Acc: 93.890625
+2022-12-20 23:47:10,711 INFO  __main__        - Average Validation acc: 98.125
+2022-12-20 23:50:04,179 INFO  __main__        - Epoch: 1/2
+2022-12-20 23:50:04,179 INFO  __main__        - Average Training Loss: 0.11911659745455835
+2022-12-20 23:50:04,179 INFO  __main__        - Average Validation Loss: 0.07813215224105079
+2022-12-20 23:50:04,179 INFO  __main__        - Average Training Acc: 96.109375
+2022-12-20 23:50:04,179 INFO  __main__        - Average Validation acc: 97.9375
+2022-12-20 23:50:18,298 INFO  __main__        - Fold: 2, Model: ResNet
+2022-12-20 23:53:05,646 INFO  __main__        - Epoch: 0/2
+2022-12-20 23:53:05,646 INFO  __main__        - Average Training Loss: 0.1084763370282235
+2022-12-20 23:53:05,646 INFO  __main__        - Average Validation Loss: 0.1706916590776018
+2022-12-20 23:53:05,646 INFO  __main__        - Average Training Acc: 96.703125
+2022-12-20 23:53:05,646 INFO  __main__        - Average Validation acc: 98.4375
+2022-12-21 00:25:25,232 INFO  __main__        - Log file is ../logs/ResNet_2//log.log
+2022-12-21 00:25:25,232 INFO  __main__        - Device: cuda:0
+2022-12-21 00:25:25,232 INFO  __main__        - Fold: 0, Model: ResNet
+2022-12-21 00:27:52,565 INFO  __main__        - Epoch: 0/2
+2022-12-21 00:27:52,565 INFO  __main__        - Average Training Loss: 1.292833081688732
+2022-12-21 00:27:52,565 INFO  __main__        - Average Validation Loss: 0.4143909964733757
+2022-12-21 00:27:52,565 INFO  __main__        - Average Training Acc: 63.375
+2022-12-21 00:27:52,565 INFO  __main__        - Average Validation acc: 88.25
+2022-12-21 00:27:52,565 INFO  __main__        - New High Acc:  87.55
+2022-12-21 00:30:14,727 INFO  __main__        - Epoch: 1/2
+2022-12-21 00:30:14,727 INFO  __main__        - Average Training Loss: 0.4080888427360915
+2022-12-21 00:30:14,727 INFO  __main__        - Average Validation Loss: 0.3203089146570419
+2022-12-21 00:30:14,727 INFO  __main__        - Average Training Acc: 88.5
+2022-12-21 00:30:14,727 INFO  __main__        - Average Validation acc: 90.77499999999999
+2022-12-21 00:30:14,727 INFO  __main__        - New High Acc:  91.3
+2022-12-21 00:34:12,125 INFO  __main__        - Log file is ../logs/ResNet_2//log.log
+2022-12-21 00:34:12,125 INFO  __main__        - Device: cuda:0
+2022-12-21 00:34:12,125 INFO  __main__        - Fold: 0, Model: ResNet
+2022-12-21 00:36:46,532 INFO  __main__        - Epoch: 0/2
+2022-12-21 00:36:46,533 INFO  __main__        - Average Training Loss: 1.2605566375851631
+2022-12-21 00:36:46,533 INFO  __main__        - Average Validation Loss: 0.4685814867708832
+2022-12-21 00:36:46,533 INFO  __main__        - Average Training Acc: 64.875
+2022-12-21 00:36:46,533 INFO  __main__        - Average Validation acc: 86.3
+2022-12-21 00:36:46,533 INFO  __main__        - New High Acc:  87.7
+2022-12-21 00:39:11,494 INFO  __main__        - Epoch: 1/2
+2022-12-21 00:39:11,494 INFO  __main__        - Average Training Loss: 0.43630513606593013
+2022-12-21 00:39:11,494 INFO  __main__        - Average Validation Loss: 0.5195023923310218
+2022-12-21 00:39:11,494 INFO  __main__        - Average Training Acc: 87.5
+2022-12-21 00:39:11,494 INFO  __main__        - Average Validation acc: 86.97500000000001
+2022-12-21 00:39:31,996 INFO  __main__        - Fold/Acc: 87.4 : 0
+2022-12-21 00:39:31,996 INFO  __main__        - Fold/Loss: 0.42671828920394184 :0
+2022-12-21 00:39:31,996 INFO  __main__        - Fold: 1, Model: ResNet
+2022-12-21 00:41:52,965 INFO  __main__        - Epoch: 0/2
+2022-12-21 00:41:52,965 INFO  __main__        - Average Training Loss: 0.46559234337881206
+2022-12-21 00:41:52,965 INFO  __main__        - Average Validation Loss: 0.11835420985938981
+2022-12-21 00:41:52,965 INFO  __main__        - Average Training Acc: 85.5
+2022-12-21 00:41:52,965 INFO  __main__        - Average Validation acc: 96.3
+2022-12-21 00:41:52,965 INFO  __main__        - New High Acc:  92.7
+2022-12-21 00:44:13,517 INFO  __main__        - Epoch: 1/2
+2022-12-21 00:44:13,517 INFO  __main__        - Average Training Loss: 0.234626575356815
+2022-12-21 00:44:13,517 INFO  __main__        - Average Validation Loss: 0.11990718557791842
+2022-12-21 00:44:13,517 INFO  __main__        - Average Training Acc: 92.925
+2022-12-21 00:44:13,517 INFO  __main__        - Average Validation acc: 96.42500000000001
+2022-12-21 00:44:13,517 INFO  __main__        - New High Acc:  93.05
+2022-12-21 00:44:35,249 INFO  __main__        - Fold/Acc: 93.05 : 1
+2022-12-21 00:44:35,249 INFO  __main__        - Fold/Loss: 0.2569775090875337 :1
+2022-12-21 00:44:35,249 INFO  __main__        - ResNet Training completed in -11m 37s
