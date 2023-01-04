@@ -1,0 +1,33 @@
+2022-12-21 11:34:54,632 INFO  __main__        - Log file is ../logs/VisionTransformer_2//log.log
+2022-12-21 11:34:54,632 INFO  __main__        - Device: cuda:0
+2022-12-21 11:34:54,632 INFO  __main__        - Fold: 0, Model: VisionTransformer
+2022-12-21 12:07:05,746 INFO  __main__        - Epoch: 0/2
+2022-12-21 12:07:05,746 INFO  __main__        - Average Training Loss: 3.0865181930065155
+2022-12-21 12:07:05,746 INFO  __main__        - Average Validation Loss: 2.848330052614212
+2022-12-21 12:07:05,746 INFO  __main__        - Average Training Acc: 10.325
+2022-12-21 12:07:05,746 INFO  __main__        - Average Validation acc: 17.175
+2022-12-21 12:07:05,746 INFO  __main__        - New High Acc:  16.900000000000002
+2022-12-21 12:31:35,141 INFO  __main__        - Epoch: 1/2
+2022-12-21 12:31:35,141 INFO  __main__        - Average Training Loss: 2.6152746891975402
+2022-12-21 12:31:35,141 INFO  __main__        - Average Validation Loss: 2.406289896249771
+2022-12-21 12:31:35,141 INFO  __main__        - Average Training Acc: 22.05
+2022-12-21 12:31:35,141 INFO  __main__        - Average Validation acc: 25.525
+2022-12-21 12:31:35,141 INFO  __main__        - New High Acc:  27.400000000000002
+2022-12-21 12:32:33,590 INFO  __main__        - Fold/Acc: 27.400000000000002 : 0
+2022-12-21 12:32:33,590 INFO  __main__        - Fold/Loss: 2.3800063576698305 :0
+2022-12-21 12:32:33,590 INFO  __main__        - Fold: 1, Model: VisionTransformer
+2022-12-21 20:05:01,079 INFO  __main__        - Epoch: 0/2
+2022-12-21 20:05:01,079 INFO  __main__        - Average Training Loss: 2.3195276455879212
+2022-12-21 20:05:01,079 INFO  __main__        - Average Validation Loss: 2.2321100816726687
+2022-12-21 20:05:01,079 INFO  __main__        - Average Training Acc: 29.725
+2022-12-21 20:05:01,079 INFO  __main__        - Average Validation acc: 32.9
+2022-12-21 20:05:01,079 INFO  __main__        - New High Acc:  32.25
+2022-12-21 20:32:49,977 INFO  __main__        - Epoch: 1/2
+2022-12-21 20:32:49,977 INFO  __main__        - Average Training Loss: 2.1311923760175704
+2022-12-21 20:32:49,977 INFO  __main__        - Average Validation Loss: 2.12547978413105
+2022-12-21 20:32:49,977 INFO  __main__        - Average Training Acc: 34.575
+2022-12-21 20:32:49,977 INFO  __main__        - Average Validation acc: 36.325
+2022-12-21 20:32:49,977 INFO  __main__        - New High Acc:  35.4
+2022-12-21 20:33:46,505 INFO  __main__        - Fold/Acc: 35.4 : 1
+2022-12-21 20:33:46,505 INFO  __main__        - Fold/Loss: 2.123896770000458 :1
+2022-12-21 20:33:46,505 INFO  __main__        - VisionTransformer Training completed in -539m 8s

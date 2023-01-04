@@ -15,7 +15,7 @@ def args_parser():
     parser.add_argument('--batch', type=int, default=8,
                         help='batch size')
 
-    parser.add_argument('--model', type=str, default='resnet', help='model name')
+    parser.add_argument('--model', type=str, default='convnext', help='model name')
     
     parser.add_argument('--finetune', type=bool, default=False, help='finetune by adding layers')
 
@@ -32,7 +32,7 @@ def args_parser():
     parser.add_argument('--optimizer', type=str, default='adamx', help="type \
                         of optimizer")
     
-    parser.add_argument('--modality', type=str, default='augmented', help="type of data [original or augmented or GAN]")
+    parser.add_argument('--modality', type=str, default='original', help="type of data [original or augmented or GAN]")
     
     parser.add_argument('--imbalanced', type=bool, default=False, help="To use cuda, set \
                         to a specific GPU ID. Default set to use CPU.")
@@ -42,7 +42,7 @@ def args_parser():
     
     parser.add_argument('--tensorboard', type=bool, default=True,
                         help='Log Metrics to TensorBoard')
-    parser.add_argument('--logger', type=str, default = '',
+    parser.add_argument('--logger', type=str, default = 'tb',
                        help= 'Logger / tensorboard(tb) or Wandb(wb)')
 
     args = parser.parse_args()

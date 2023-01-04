@@ -1,9 +1,31 @@
 # Consolidated Imports
 from imports import *
 
+from dataset import SceneClassification
 
-# Additional Imports
-from dataset import SkinCancer
+import argparse
+import os
+import numpy as np
+import math
+
+import torchvision.transforms as transforms
+from torchvision.utils import save_image
+
+from torch.utils.data import DataLoader
+from torchvision import datasets
+from torch.autograd import Variable
+
+import torch.nn as nn
+import torch.nn.functional as F
+import torch
+
+import matplotlib.pyplot as plt
+
+#disable interactive plotting 
+plt.ioff()
+
+import warnings
+warnings.filterwarnings('ignore')
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--n_epochs", type=int, default=5, help="number of epochs of training")
@@ -26,6 +48,8 @@ if torch.cuda.is_available():
     device = 'cuda'
 else:
     device = 'cpu'
+    
+    
 def weights_init_normal(m):
     classname = m.__class__.__name__
     if classname.find("Conv") != -1:
@@ -39,10 +63,10 @@ class Generator(nn.Module):
     def __init__(self):
         super(Generator, self).__init__()
 
-        self.label_emb = nn.Embedding(opt.n_classes, opt.latent_dim)
+        self.label_emb = nn.Embedding(n_classes, latent_dim)
 
-        self.init_size = opt.img_size // 4  # Initial size before upsampling
-        self.l1 = nn.Sequential(nn.Linear(opt.latent_dim, 128 * self.init_size ** 2))
+        self.init_size = img_size // 4  # Initial size before upsampling
+        self.l1 = nn.Sequential(nn.Linear(latent_dim, 128 * self.init_size ** 2))
 
         self.conv_blocks = nn.Sequential(
             nn.BatchNorm2d(128),
@@ -54,7 +78,7 @@ class Generator(nn.Module):
             nn.Conv2d(128, 64, 3, stride=1, padding=1),
             nn.BatchNorm2d(64, 0.8),
             nn.LeakyReLU(0.2, inplace=True),
-            nn.Conv2d(64, opt.channels, 3, stride=1, padding=1),
+            nn.Conv2d(64, 3, 3, stride=1, padding=1),
             nn.Tanh(),
         )
 
@@ -161,75 +185,88 @@ def sample_image(n_row, batches_done):
     gen_imgs = generator(z, labels)
     save_image(gen_imgs.data, "../data/HAM10k/GAN_Generated/%d.png" % batches_done, nrow=n_row, normalize=True)
 
-
 # ----------
 #  Training
 # ----------
-
-for epoch in range(opt.n_epochs):
+gen_loss = 100.0
+dis_loss = 100.0
+device='cuda'
+for epoch in range(n_epochs):
     for i, (imgs, labels) in enumerate(dataloader):
-
-        batch_size = imgs.shape[0]
-
-        # Adversarial ground truths
-        valid = Variable(FloatTensor(batch_size, 1).fill_(1.0), requires_grad=False)
-        fake = Variable(FloatTensor(batch_size, 1).fill_(0.0), requires_grad=False)
-
-        # Configure input
-        # real_imgs = Variable(imgs.type(FloatTensor))
-        # labels = Variable(labels.type(LongTensor))
         
-        real_imgs = imgs
-        labels = torch.as_tensor(labels)
-        # -----------------
-        #  Train Generator
-        # -----------------
+        if i<165:
+        
+            batch_size = 16
+            imgs = imgs.to(device)
+            labels = labels.to(device)
 
-        optimizer_G.zero_grad()
+            # Adversarial ground truths
+            valid = Variable(FloatTensor(batch_size, 1).fill_(1.0), requires_grad=False)
+            fake = Variable(FloatTensor(batch_size, 1).fill_(0.0), requires_grad=False)
 
-        # Sample noise and labels as generator input
-        z = Variable(FloatTensor(np.random.normal(0, 1, (batch_size, opt.latent_dim))))
-        gen_labels = Variable(LongTensor(np.random.randint(0, opt.n_classes, batch_size)))
+            # Configure input
+            # real_imgs = Variable(imgs.type(FloatTensor))
+            # labels = Variable(labels.type(LongTensor))
 
-        # Generate a batch of images
-        gen_imgs = generator(z, gen_labels)
+            real_imgs = imgs
+            labels = LongTensor(labels)
+            # -----------------
+            #  Train Generator
+            # -----------------
 
-        # Loss measures generator's ability to fool the discriminator
-        validity, pred_label = discriminator(gen_imgs)
-        g_loss = 0.5 * (adversarial_loss(validity, valid) + auxiliary_loss(pred_label, gen_labels))
+            optimizer_G.zero_grad()
 
-        g_loss.backward()
-        optimizer_G.step()
+            # Sample noise and labels as generator input
+            z = Variable(FloatTensor(np.random.normal(0, 1, (batch_size, latent_dim))))
+            gen_labels = Variable(LongTensor(np.random.randint(0, n_classes, batch_size)))
 
-        # ---------------------
-        #  Train Discriminator
-        # ---------------------
+            # Generate a batch of images
+            gen_imgs = generator(z, gen_labels)
 
-        optimizer_D.zero_grad()
+            # Loss measures generator's ability to fool the discriminator
+            validity, pred_label = discriminator(gen_imgs)
+            g_loss = 0.5 * (adversarial_loss(validity, valid) + auxiliary_loss(pred_label, gen_labels))
 
-        # Loss for real images
-        real_pred, real_aux = discriminator(real_imgs)
-        d_real_loss = (adversarial_loss(real_pred, valid) + auxiliary_loss(real_aux, labels)) / 2
+            g_loss.backward()
+            optimizer_G.step()
 
-        # Loss for fake images
-        fake_pred, fake_aux = discriminator(gen_imgs.detach())
-        d_fake_loss = (adversarial_loss(fake_pred, fake) + auxiliary_loss(fake_aux, gen_labels)) / 2
+            # ---------------------
+            #  Train Discriminator
+            # ---------------------
 
-        # Total discriminator loss
-        d_loss = (d_real_loss + d_fake_loss) / 2
+            optimizer_D.zero_grad()
 
-        # Calculate discriminator accuracy
-        pred = np.concatenate([real_aux.data.cpu().numpy(), fake_aux.data.cpu().numpy()], axis=0)
-        gt = np.concatenate([labels.data.cpu().numpy(), gen_labels.data.cpu().numpy()], axis=0)
-        d_acc = np.mean(np.argmax(pred, axis=1) == gt)
+            # Loss for real images
+            real_pred, real_aux = discriminator(real_imgs)
+            d_real_loss = (adversarial_loss(real_pred, valid) + auxiliary_loss(real_aux, labels)) / 2
 
-        d_loss.backward()
-        optimizer_D.step()
+            # Loss for fake images
+            fake_pred, fake_aux = discriminator(gen_imgs.detach())
+            d_fake_loss = (adversarial_loss(fake_pred, fake) + auxiliary_loss(fake_aux, gen_labels)) / 2
 
-        print(
-            "[Epoch %d/%d] [Batch %d/%d] [D loss: %f, acc: %d%%] [G loss: %f]"
-            % (epoch, opt.n_epochs, i, len(dataloader), d_loss.item(), 100 * d_acc, g_loss.item())
-        )
-        batches_done = epoch * len(dataloader) + i
-        if batches_done % opt.sample_interval == 0:
-            sample_image(n_row=10, batches_done=batches_done)
+            # Total discriminator loss
+            d_loss = (d_real_loss + d_fake_loss) / 2
+
+            # Calculate discriminator accuracy
+            pred = np.concatenate([real_aux.data.cpu().numpy(), fake_aux.data.cpu().numpy()], axis=0)
+            gt = np.concatenate([labels.data.cpu().numpy(), gen_labels.data.cpu().numpy()], axis=0)
+            d_acc = np.mean(np.argmax(pred, axis=1) == gt)
+
+            d_loss.backward()
+            optimizer_D.step()
+            
+            if g_loss.item() < gen_loss:
+                gen_loss = g_loss.item()
+                torch.save(generator.state_dict(), f'../models/GAN/{generator._get_name()}.pth')
+                
+            if d_loss.item() < dis_loss:
+                dis_loss = d_loss.item()
+                torch.save(discriminator.state_dict(), f'../models/GAN/{discriminator._get_name()}.pth')
+            
+    
+    sample_imgs(gen_imgs,gen_labels,epoch)
+    print(
+        "[Epoch %d/%d] [Batch %d/%d] [D loss: %f, acc: %d%%] [G loss: %f]"
+        % (epoch, n_epochs, i, len(dataloader), d_loss.item(), 100 * d_acc, g_loss.item())
+    )
+

@@ -1,0 +1,32 @@
+2022-12-21 21:47:17,105 INFO  __main__        - Log file is ../logs/ConvNeXt_2//log.log
+2022-12-21 21:47:17,105 INFO  __main__        - Device: cuda:0
+2022-12-21 21:47:17,105 INFO  __main__        - Fold: 0, Model: ConvNeXt
+2022-12-21 21:54:24,723 INFO  __main__        - Epoch: 0/2
+2022-12-21 21:54:24,723 INFO  __main__        - Average Training Loss: 1.1471539096347987
+2022-12-21 21:54:24,723 INFO  __main__        - Average Validation Loss: 0.28874453423172236
+2022-12-21 21:54:24,739 INFO  __main__        - Average Training Acc: 67.625
+2022-12-21 21:54:24,739 INFO  __main__        - Average Validation acc: 90.7
+2022-12-21 21:54:24,761 INFO  __main__        - New High Acc:  90.64999999999999
+2022-12-21 22:01:24,513 INFO  __main__        - Epoch: 1/2
+2022-12-21 22:01:24,536 INFO  __main__        - Average Training Loss: 0.170028635579627
+2022-12-21 22:01:24,536 INFO  __main__        - Average Validation Loss: 0.24866354735381901
+2022-12-21 22:01:24,536 INFO  __main__        - Average Training Acc: 95.075
+2022-12-21 22:01:24,536 INFO  __main__        - Average Validation acc: 92.175
+2022-12-21 22:01:24,536 INFO  __main__        - New High Acc:  92.65
+2022-12-21 22:02:03,606 INFO  __main__        - Fold/Acc: 92.65 : 0
+2022-12-21 22:02:03,606 INFO  __main__        - Fold/Loss: 0.2236963237505406 :0
+2022-12-21 22:02:03,606 INFO  __main__        - Fold: 1, Model: ConvNeXt
+2022-12-21 22:09:02,745 INFO  __main__        - Epoch: 0/2
+2022-12-21 22:09:02,745 INFO  __main__        - Average Training Loss: 0.28559726451523604
+2022-12-21 22:09:02,745 INFO  __main__        - Average Validation Loss: 0.12639720734208823
+2022-12-21 22:09:02,751 INFO  __main__        - Average Training Acc: 90.8
+2022-12-21 22:09:02,751 INFO  __main__        - Average Validation acc: 95.7
+2022-12-21 22:16:01,752 INFO  __main__        - Epoch: 1/2
+2022-12-21 22:16:01,752 INFO  __main__        - Average Training Loss: 0.0985739554904867
+2022-12-21 22:16:01,752 INFO  __main__        - Average Validation Loss: 0.03290696627984289
+2022-12-21 22:16:01,752 INFO  __main__        - Average Training Acc: 96.89999999999999
+2022-12-21 22:16:01,773 INFO  __main__        - Average Validation acc: 98.925
+2022-12-21 22:16:01,773 INFO  __main__        - New High Acc:  96.15
+2022-12-21 22:16:40,621 INFO  __main__        - Fold/Acc: 96.15 : 1
+2022-12-21 22:16:40,621 INFO  __main__        - Fold/Loss: 0.12490359225170687 :1
+2022-12-21 22:16:40,637 INFO  __main__        - ConvNeXt Training completed in -30m 36s

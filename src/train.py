@@ -236,7 +236,7 @@ if __name__ == '__main__':
 
     if args.logger == 'tb':
 
-        logger = SummaryWriter(log_dir=f'../tb_logs/{model._get_name()}/{args.modality}_{args.epochs}Epochs')
+        logger = SummaryWriter(log_dir=f'../Tensorboard/{model._get_name()}/{args.modality}_{args.epochs}Epochs')
 
     elif args.logger == 'wb':
         wandb.login(key="7a2f300a61c6b3c4852452a09526c40098020be2")
@@ -309,6 +309,12 @@ if __name__ == '__main__':
             LOGGER.info(f'Average Validation Loss: {val_loss}')
             LOGGER.info(f'Average Training Acc: {train_acc}')
             LOGGER.info(f'Average Validation acc: {val_acc}')
+            
+            if args.logger == 'tb':
+                logger.add_scalar('Avg Training Loss', train_loss, epoch)
+                logger.add_scalar('Avg Validation Loss', val_loss, epoch)
+                logger.add_scalar('Avg Training Accuracy', train_acc, epoch)
+                logger.add_scalar('Avg Validation Accuracy', val_acc, epoch)
 
             test_loss_epoch = test_loss_epoch / len(test_loader.sampler)
             test_acc_epoch = test_acc_epoch / len(test_loader.sampler) * 100
@@ -360,6 +366,10 @@ if __name__ == '__main__':
 
         LOGGER.info(f'Fold/Acc: {test_acc} : {fold}')
         LOGGER.info(f'Fold/Loss: {test_loss} :{fold}')
+        
+        if args.logger == 'tb':
+            logger.add_scalar('Fold/Accuracy', test_acc, fold)
+            logger.add_scalar('Fold/Loss', test_loss, fold)
 
         # ======================= Save model if new high accuracy ======================= #
         if test_acc > best_acc:
